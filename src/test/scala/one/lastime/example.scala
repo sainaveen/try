@@ -1,0 +1,1 @@
+df = spark.read.format("com.databricks.spark.xml").option("rowTag", "T").load("gs://programfile/customer.xml")
