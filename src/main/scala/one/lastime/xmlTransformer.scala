@@ -57,7 +57,7 @@ object xmlTransformer {
     val fs = FileSystem.get(hadoopconf);
     spark.sql("alter table %s.%s add partition (file_stamp='%s')".format(file_stamp))
     //Create output stream to HDFS file
-    val outFileStream = fs.create(new Path("hdfs://"+table_path+"/file_stamp=%s".format(file_stamp)))
+    val outFileStream = fs.create(new Path("hdfs://"+table_path+"/file_stamp=%s/".format(file_stamp)))
 
     //Create input stream from local hdfs file
     val inStream = fs.open(new Path(file_path))
