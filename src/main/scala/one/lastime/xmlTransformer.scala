@@ -55,7 +55,7 @@ object xmlTransformer {
     df1.write.parquet(file_path)
     val hadoopconf = new Configuration();
     val fs = FileSystem.get(hadoopconf);
-    spark.sql("alter table %s.%s add partition (file_stamp='%s')".format(file_stamp))
+    spark.sql("alter table ica.customer add partition (file_stamp='%s')".format(file_stamp))
     //Create output stream to HDFS file
     val outFileStream = fs.create(new Path("hdfs://"+table_path+"/file_stamp=%s/".format(file_stamp)))
 
